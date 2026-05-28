@@ -150,6 +150,14 @@ check_file "etc/sysctl.d/99-kubernetes.conf" "sysctl config"
 check_file "usr/lib/systemd/system/kubelet.service" "kubelet service unit"
 check_file "usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf" "kubeadm drop-in"
 check_file "etc/crictl.yaml" "crictl config"
+check_file "usr/lib/systemd/system/chrony.service" "chrony service unit"
+
+if [[ -e "$MOUNT_DIR/etc/systemd/system/multi-user.target.wants/chrony.service" ]]; then
+    echo "  ✓ chrony service: enabled"
+else
+    echo "  ✗ chrony service: not enabled"
+    ERRORS=$((ERRORS + 1))
+fi
 
 echo ""
 echo "--- Kubernetes Version ---"

@@ -179,6 +179,7 @@ Each image includes:
 - **CNI plugins**: Standard CNI plugins (from GitHub releases)
 - **crictl**: CRI CLI tool
 - **cloud-init**: For first-boot provisioning
+- **chrony**: NTP synchronization enabled at boot
 - **Networking**: conntrack, socat, ebtables, iptables, iproute2
 - **Kernel config**: br_netfilter + overlay modules, IP forwarding sysctl
 - **kubelet service**: systemd unit with kubeadm drop-in

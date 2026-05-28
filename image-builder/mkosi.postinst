@@ -23,6 +23,9 @@ done
 # Enable SSH
 systemctl --root="$BUILDROOT" enable ssh.service
 
+# Enable NTP synchronization
+systemctl --root="$BUILDROOT" enable chrony.service
+
 echo "==> Configuring kernel modules to load at boot..."
 # The module list is dropped via mkosi.extra, but ensure the directory exists
 mkdir -p "$BUILDROOT/etc/modules-load.d"
